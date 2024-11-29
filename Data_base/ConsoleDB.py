@@ -4,111 +4,97 @@ try:
     conexao = db.connect("Data_base\data.db")
     cursor = conexao.cursor()
     
-    comand = """DROP TABLE Livro"""
-                
-    comand0 = """CREATE TABLE Livro( 
-                    isbn INT NOT NULL,  
-                    autor TEXT NOT NULL,  
-                    titulo TEXT NOT NULL,  
-                    assunto TEXT NOT NULL,  
-                    editora TEXT NOT NULL,  
-                    idioma TEXT NOT NULL,  
-                    fk_idEstoque INT NOT NULL,  
-                    preco REAL NOT NULL, 
-                    PRIMARY KEY(isbn),
-                    FOREIGN KEY(fk_idEstoque) REFERENCES Estoque (id)
-                );""" 
-
-    comand1 =   """CREATE TABLE Cliente( 
-                    nome TEXT NOT NULL,  
-                    id INT NOT NULL,                
-                    PRIMARY KEY(id),                
-                    );""" 
-
-    comand2 =   """CREATE TABLE Atendente( 
-                    id INT NOT NULL,  
-                    nome TEXT NOT NULL,
-                    PRIMARY KEY(id)
-                    ); """
-
-    comand3 =   """CREATE TABLE Endereco(
-                    id INT NOT NULL,
-                    cep INT NOT NULL,  
-                    numero INT NOT NULL,  
+    comand1 = """CREATE TABLE Endereco (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    numero INT NOT NULL,
                     rua TEXT NOT NULL,
-                    complemento NULL,
-                    fk_idCliente NOT NULL,               
-                    PRIMARY KEY(id),
-                    PRIMARY KEY(fk_idCliente),
-                    FOREIGN KEY(fk_idCliente) REFERENCES Cliente (id)                
-                    );""" 
-
-    comand4 =   """CREATE TABLE NFe( 
-                    numero INT NOT NULL,  
-                    chave INT NOT NULL,  
-                    cfop INT NOT NULL, 
-                    PRIMARY KEY(numero)
-                    );""" 
-
-    comand5 =   """CREATE TABLE Estoque( 
-                    exemplares INT NOT NULL,  
-                    id INT NOT NULL,
-                    PRIMARY KEY(id)
-                    );""" 
-
-    comand6 =   """CREATE TABLE Pedido( 
-                    id INT NOT NULL,  
-                    fk_idLivro INT NOT NULL,  
-                    fk_idCliente INT NOT NULL,  
-                    precoTotal REAL NOT NULL,  
-                    PRIMARY KEY(id),
-                    FOREIGN KEY(fk_idLivro) REFERENCES Livro (isbn),    
-                    FOREIGN KEY(fk_idCliente) REFERENCES Cliente (id)
-                    );""" 
-
-    comand7 =   """CREATE TABLE Retirada( 
-                    id INT NOT NULL,  
-                    fk_idEstoque INT NOT NULL,  
-                    PRIMARY KEY(id),
-                    FOREIGN KEY(fk_idEstoque) REFERENCES Estoque (id)
-                    );""" 
-
-    comand8 =   """CREATE TABLE Venda( 
-                    id INT NOT NULL,
-                    data DATE NOT NULL,
-                    consignacao BLOB NOT NULL,  
-                    fk_idRetirada INT NOT NULL,  
-                    fk_idAtendente INT NOT NULL,  
-                    fk_idpedido INT NOT NULL,  
-                    fk_idNFe INT NOT NULL,  
-                    data DATE NOT NULL,  
-                    PRIMARY KEY(id),
-                    FOREIGN KEY(fk_idRetirada) REFERENCES Retirada (id),
-                    FOREIGN KEY(fk_idAtendente) REFERENCES Atendente (id),
-                    FOREIGN KEY(fk_idpedido) REFERENCES Pedido (id),
-                    FOREIGN KEY(fk_idNFe) REFERENCES NFe (numero)
-                
-                    );""" 
-                
-    comand95 =  """CREATE TABLE Pessoa_fisica( 
-                    cpf INT NOT NULL,  
-                    fk_idCliente INT NOT NULL,  
-                    PRIMARY KEY(fk_idCliente),
-                    FOREIGN KEY(fk_idCliente) REFERENCES Cliente (id)
-                    );""" 
+                    cep INT NOT NULL,
+                    fk_Cliente_id INT NOT NULL,                    
+                    FOREIGN KEY (fk_Cliente_id) REFERENCES Cliente (id)
+                );
+                """
+    comand2 = """CREATE TABLE Cliente (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    nome TEXT NOT NULL,
+                    ie INT NOT NULL,
+                    cnpj INT,
+                    cpf INT,
+                    Cliente_TIPO BLOB NOT NULL
                     
-    comand9 =   """CREATE TABLE Pessoa_juridica( 
-                    ie INT NOT NULL,  
-                    cnpj INT NOT NULL,
-                    fk_idCliente INT NOT NULL,  
-                    PRIMARY KEY(fk_idCliente),
-                    FOREIGN KEY(fk_idCliente) REFERENCES Cliente (id)
-                    );""" 
-
+                );
+              """
+    comand3 = """CREATE TABLE Livro (
+                    autor TEXT NOT NULL,
+                    titulo TEXT NOT NULL,
+                    idioma TEXT NOT NULL,
+                    editora TEXT NOT NULL,
+                    assunto TEXT NOT NULL,
+                    isbn INT NOT NULL,
+                    fk_Estoque_id INT NOT NULL,
+                    peso REAL NOT NULL,
+                    preco REAL NOT NULL,
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    FOREIGN KEY (fk_Estoque_id) REFERENCES Estoque (id)
+                );
+              """
+    comand4 = """CREATE TABLE Estoque (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    exemplares INT NOT NULL
+                
+                );
+              """
+    
+    comand5 = """CREATE TABLE Carrinho (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    exemplares INT NOT NULL
+                    
+                );
+              """
+    comand6 = """CREATE TABLE Atendente (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    nome TEXT NOT NULL
+                    
+                );
+              """
+    comand7 = """CREATE TABLE Nota_Fiscal (
+                    acesso INT NOT NULL,
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    cfop INT NOT NULL
+                    
+                );
+              """
+    comand8 = """CREATE TABLE Adiciona_Carrinho (
+                    fk_Cliente_id INT NOT NULL,
+                    fk_Livro_id INT NOT NULL,
+                    fk_Carrinho_id INT NOT NULL,                    
+                    PRIMARY KEY(fk_Carrinho_id, fk_Livro_id),
+                    FOREIGN KEY (fk_Cliente_id) REFERENCES Cliente (id),
+                    FOREIGN KEY (fk_Livro_id) REFERENCES Livro (isbn),
+                    FOREIGN KEY (fk_Carrinho_id) REFERENCES Carrinho (id)
+                );
+              """
+    comand9 = """CREATE TABLE Compra_Cliente (
+                    fk_Cliente_id INT NOT NULL,
+                    fk_Carrinho_id INT NOT NULL,
+                    fk_Nota_Fiscal_numero INT NOT NULL,
+                    fk_Atendente_id INT NOT NULL,
+                    data DATE NOT NULL,
+                    operacao TEXT NOT NULL,
+                    desconto REAL NOT NULL,
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    total REAL NOT NULL,
+                    total_com_desconto REAL NOT NULL,
+                    
+                    FOREIGN KEY (fk_Cliente_id) REFERENCES Cliente (id),
+                    FOREIGN KEY (fk_Carrinho_id) REFERENCES Carrinho (id),
+                    FOREIGN KEY (fk_Nota_Fiscal_numero) REFERENCES Nota_Fiscal (numero),
+                    FOREIGN KEY (fk_Atendente_id) REFERENCES Atendente (id)
+                );
+              """
 
             
 
-    cursor.execute(comand0)
+    
     cursor.execute(comand1)
     cursor.execute(comand2)
     cursor.execute(comand3)
@@ -118,7 +104,7 @@ try:
     cursor.execute(comand7)
     cursor.execute(comand8)
     cursor.execute(comand9)
-    cursor.execute(comand95)
+
     
     conexao.commit()
     
