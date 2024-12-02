@@ -92,10 +92,17 @@ try:
                 );
               """
 
-            
+    comand10 = """CREATE TABLE Login (
+                    id INT NOT NULL,
+                    login TEXT NOT NULL,
+                    senha TEXT NOT NULL,
+                    fk_Atendente_id INT NOT NULL,
+                    PRIMARY KEY (id, fk_Atendente_id)
+                    FOREIGN KEY (fk_Atendente_id) REFERENCES Atendente (id)
+                );"""        
 
     
-    cursor.execute(comand1)
+    """cursor.execute(comand1)
     cursor.execute(comand2)
     cursor.execute(comand3)
     cursor.execute(comand4)
@@ -103,9 +110,9 @@ try:
     cursor.execute(comand6)
     cursor.execute(comand7)
     cursor.execute(comand8)
-    cursor.execute(comand9)
+    """
 
-    
+    cursor.execute(comand10)
     conexao.commit()
     
     
