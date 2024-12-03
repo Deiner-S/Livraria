@@ -1,0 +1,10 @@
+1 - Certo, tenho a entidade livro e a entidade cliente que interagem pelo relacionamento carrinho ambos com cardinalidade (0,n). seguindo o conceito de entidade associativa posso fazer uma associação dessas 2 entidades e do seu relacionamento e liga-la a um outro relacionamento que nesse caso seria o de compra onde as entidades participantes são: Cliente (1,1), atendente(0,n) e nota_fiscal(0,n). como ficam as tabelas dessa moelagem ?
+
+1.2 - certo, mas não seria interessante a tabela compra ter o id do carrinho ?
+1.3 - mas fazer isso não é errado?
+
+2 - Na situação apresentada na questão 1 temos a entidade Cliente diretamente associada ao relacionamento compra e depois o relacionamento compra ligado a associação do relacionamento carrinho, poderíamos excluir a ligação entre o cliente e compra já que o relacionamento compra está ligado a associação do relacionamento carrinho ?
+
+3 - Tenho 1 entidade de login, porem, não é apenas uma entidade que precisa se relacionar com ela temos a entidade funcionário e cliente que ambos precisam fazer login, para resolver esse problema foi criado 1 relacionamento individual para cada entidade de modo que ambas tenham um  relacionamento binário com a entidade login. Porque não poderíamos modelar esse caso com um único relacionamento que ligasse as três entidades ?
+
+nesse caso poderíamos criar também uma generalização usuário e englobar cliente e funcionário para evitar campos nulos na tabela login ? pois caso eu tenha 4 tipos de pessoas que precisam de fazer login ficaria um pouco desorganizado ter 4 colunas de fk onde somente 1 delas seria um dado não nulo
