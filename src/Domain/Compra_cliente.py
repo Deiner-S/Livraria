@@ -1,11 +1,11 @@
 class Compra_cliente():
-    def __init__(self,id,clienteId,notaFiscalId,atendenteId,data,operacao,desconto,total):
-        self._id = id
-        self._clienteId = clienteId
-        self._notaFiscalId = notaFiscalId
-        self._atendenteId = atendenteId
-        self._data = data
+    def __init__(self,id_carrinho,id_notaFiscal,id_atendente,data,operacao,desconto,total):
+        self._id = None
+        self._id_carrinho = id_cliente
+        self._id_notaFiscal = id_notaFiscal
+        self._id_atendente = id_atendente
         self._operacao = operacao
+        self._data = data
         self._desconto = desconto
         self._total = total
     
@@ -14,20 +14,20 @@ class Compra_cliente():
     def set_id(self, new):
         self._id = new
 
-    def get_clienteId(self):
-        return self._clienteId
-    def set_clienteId(self, new):
-        self._clienteId = new
+    def get_id_carrinho(self):
+        return self._id_carrinho
+    def set_id_carrinho(self, new):
+        self._id_carrinho = new
 
-    def getnotaFiscalId(self):
-        return self.notaFiscalId
-    def setnotaFiscalId(self, new):
-        self.notaFiscalId = new
+    def get_id_notaFiscal(self):
+        return self._id_notaFiscal
+    def set_id_notaFiscal(self, new):
+        self._id_notaFiscal = new
 
-    def getatendenteId(self):
-        return self.atendenteId
-    def setatendenteId(self, new):
-        self.atendenteId = new
+    def get_id_atendente(self):
+        return self._id_atendente
+    def set_id_atendente(self, new):
+        self._id_atendente = new
 
     def get_data(self):
         return self._data
@@ -48,3 +48,6 @@ class Compra_cliente():
         return self._total
     def set_total(self, new):
         self._total = new
+    
+    def values():
+        return "(:fk_carrinho_id,:fk_notaFiscal_id,:fk_atendente_id,:operacao,:data,:desconto,:total)"

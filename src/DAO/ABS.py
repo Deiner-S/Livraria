@@ -14,9 +14,9 @@ class DAO():
     #
     # 
     
-    def create(self,tabela,cursor,obj,values):
+    def create(self,tabela,cursor,obj):
         try:
-            comando = f"""INSERT INTO {tabela} VALUES {values};"""        
+            comando = f"""INSERT INTO {tabela} VALUES {obj.values()};"""        
             cursor.execute(comando, vars(obj))
         except Exception as e:
             print(f"Erro banco de dados: {e}")
