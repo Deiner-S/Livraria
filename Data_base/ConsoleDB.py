@@ -6,113 +6,99 @@ try:
     
     comand1 = """CREATE TABLE Endereco (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    numero INT NOT NULL,
+                    fk_cliente_id INT NOT NULL,                    
+                    cep TEXT NOT NULL,
                     rua TEXT NOT NULL,
-                    cep INT NOT NULL,
-                    fk_Cliente_id INT NOT NULL,                    
-                    FOREIGN KEY (fk_Cliente_id) REFERENCES Cliente (id)
+                    numero TEXT NOT NULL,
+                    bairro TEXT NOT NULL,
+                    complemento TEXT NOT NULL,
+                    cidade TEXT NOT NULL,
+                    estado TEXT NOT NULL,
+                    FOREIGN KEY (fk_cliente_id) REFERENCES Cliente (id)
                 );
                 """
     comand2 = """CREATE TABLE Cliente (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     nome TEXT NOT NULL,
-                    ie INT NOT NULL,
-                    cnpj INT,
-                    cpf INT,
-                    Cliente_TIPO BLOB NOT NULL
+                    cnpj TEXT NULL,
+                    ie TEXT NULL,
+                    cpf TEXT NULL,
+                    Cliente_TIPO TEXT NOT NULL
                     
                 );
               """
     comand3 = """CREATE TABLE Livro (
-                    autor TEXT NOT NULL,
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    isbn TEXT NOT NULL,
                     titulo TEXT NOT NULL,
+                    autor TEXT NOT NULL,
+                    assunto TEXT NOT NULL,
                     idioma TEXT NOT NULL,
                     editora TEXT NOT NULL,
-                    assunto TEXT NOT NULL,
-                    isbn INT NOT NULL,
-                    fk_Estoque_id INT NOT NULL,
-                    peso REAL NOT NULL,
-                    preco REAL NOT NULL,
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    FOREIGN KEY (fk_Estoque_id) REFERENCES Estoque (id)
-                );
-              """
-    comand4 = """CREATE TABLE Estoque (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    exemplares INT NOT NULL
-                
-                );
-              """
-    
-    comand5 = """CREATE TABLE Carrinho (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    exemplares INT NOT NULL
-                    
-                );
+                    estoque INT NOT NULL,                    
+                    preco REAL NOT NULL
+              );
               """
     comand6 = """CREATE TABLE Atendente (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    nome TEXT NOT NULL
-                    
+                    nome TEXT NOT NULL,
+                    email TEXT NOT NULL                    
                 );
               """
     comand7 = """CREATE TABLE Nota_Fiscal (
-                    acesso INT NOT NULL,
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    cfop INT NOT NULL
-                    
+                    cfop TEXT NOT NULL,
+                    acesso TEXT NOT NULL                    
                 );
               """
-    comand8 = """CREATE TABLE Adiciona_Carrinho (
-                    fk_Cliente_id INT NOT NULL,
-                    fk_Livro_id INT NOT NULL,
-                    fk_Carrinho_id INT NOT NULL,                    
-                    PRIMARY KEY(fk_Carrinho_id, fk_Livro_id),
-                    FOREIGN KEY (fk_Cliente_id) REFERENCES Cliente (id),
-                    FOREIGN KEY (fk_Livro_id) REFERENCES Livro (isbn),
-                    FOREIGN KEY (fk_Carrinho_id) REFERENCES Carrinho (id)
+    
+    comand8 = """CREATE TABLE Carrinho (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    fk_cliente_id INT NOT NULL,
+                    fk_livro_id INT NOT NULL,
+                    exemplares INT NOT NULL,
+                    status BLOB NOT NULL,                                        
+                    FOREIGN KEY (fk_cliente_id) REFERENCES Cliente (id),
+                    FOREIGN KEY (fk_livro_id) REFERENCES Livro (id)
                 );
               """
     comand9 = """CREATE TABLE Compra_Cliente (
-                    fk_Cliente_id INT NOT NULL,
-                    fk_Carrinho_id INT NOT NULL,
-                    fk_Nota_Fiscal_numero INT NOT NULL,
-                    fk_Atendente_id INT NOT NULL,
-                    data DATE NOT NULL,
-                    operacao TEXT NOT NULL,
-                    desconto REAL NOT NULL,
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    total REAL NOT NULL,
-                    total_com_desconto REAL NOT NULL,
-                    
-                    FOREIGN KEY (fk_Cliente_id) REFERENCES Cliente (id),
-                    FOREIGN KEY (fk_Carrinho_id) REFERENCES Carrinho (id),
-                    FOREIGN KEY (fk_Nota_Fiscal_numero) REFERENCES Nota_Fiscal (numero),
-                    FOREIGN KEY (fk_Atendente_id) REFERENCES Atendente (id)
+                    fk_carrinho_id INT NOT NULL,
+                    fk_nota_Fiscal_numero INT NOT NULL,
+                    fk_atendente_id INT NOT NULL,
+                    operacao TEXT NOT NULL,
+                    data DATE NOT NULL,
+                    desconto REAL NOT NULL,
+                    total REAL NOT NULL,                    
+                    FOREIGN KEY (fk_carrinho_id) REFERENCES Carrinho (id),
+                    FOREIGN KEY (fk_nota_Fiscal_numero) REFERENCES Nota_Fiscal (id),
+                    FOREIGN KEY (fk_atendente_id) REFERENCES Atendente (id)
                 );
               """
 
     comand10 = """CREATE TABLE Login (
-                    id INT NOT NULL,
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    fk_atendente_id INT NOT NULL,
+                    ativo BLOB NOT NULL,
+                    data_criacao DATE NOT NULL,
+                    ultimo_acesso DATE NOT NULL,
                     login TEXT NOT NULL,
                     senha TEXT NOT NULL,
-                    fk_Atendente_id INT NOT NULL,
-                    PRIMARY KEY (id, fk_Atendente_id)
-                    FOREIGN KEY (fk_Atendente_id) REFERENCES Atendente (id)
+                    FOREIGN KEY (fk_atendente_id) REFERENCES Atendente (id)
                 );"""        
 
     
-    """cursor.execute(comand1)
+    cursor.execute(comand1)
     cursor.execute(comand2)
-    cursor.execute(comand3)
-    cursor.execute(comand4)
-    cursor.execute(comand5)
+    cursor.execute(comand3)    
     cursor.execute(comand6)
     cursor.execute(comand7)
     cursor.execute(comand8)
-    """
-
+    cursor.execute(comand9)
     cursor.execute(comand10)
+
+    
     conexao.commit()
     
     
