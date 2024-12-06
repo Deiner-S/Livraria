@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Document</title>
+</head>
+<body>
+    <div class = "estilo"name="container">
+        <form method='POST'>
+           <label for=''></label>
+           <a href=""></a>
+           <p id = "001">asdad</p>
+           <input class = "estilo" type='' id="login" name='login' required><br><b>
+           <input type='submit' value=''>
+        </form>
+    </div>
+</body>
+    <script>
+        console.log(document.body);
+        console.log(document.body.childNodes[1])
+        console.log(document.body.childNodes[1].childNodes[1])
+        console.log(document.body.childNodes[1].childNodes[1].childNodes)
+        console.log(document.body.childNodes[1].childNodes[1].childNodes[5].innerText)
+        //métodos para encontrar elemenos no html para não ser necessário ficar navegando sempre
+        console.log(document.getElementsByTagName('p'));
+        console.log(document.getElementById("001"));        
+        console.log(document.getElementsByClassName("estilo"));
+        //document.querySelector(". # h1");
+
+    </script>
+</html>

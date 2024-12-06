@@ -1,16 +1,21 @@
 .font {
     font-family: 'JetBrains Mono Extranegrito', sans-serif; /* Fonte principal */
 }
+/* Centralizar placeholder inputs */
+input::placeholder {
+    text-align: center; /* Alinha o texto horizontalmente */
+    vertical-align: middle; /* Centraliza o texto verticalmente */
+}
 
 /* Container do formulário e título */
 .login-container {
     width: 300px;
-    margin: 50px auto;
+    margin: 50px auto;    
     text-align: center; /* Centraliza o conteúdo dentro do container */
 }
 
 /* Estilização do título */
-.login-title {
+.title {
     margin-bottom: 20px; /* Espaçamento entre o título e o formulário */
     font-size: 24px; /* Tamanho da fonte */
     color: #333; /* Cor do título */
@@ -37,7 +42,7 @@
 /* Estilo dos inputs de texto e senha */
 .form-input {
     width: 100%;
-    padding: 8px;
+    padding: 12px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -48,7 +53,7 @@
 /* Estilo do botão de submit */
 .form-submit {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     background-color: #007BFF;
     color: white;
     border: none;
