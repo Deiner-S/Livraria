@@ -1,0 +1,64 @@
+.font {
+    font-family: 'JetBrains Mono Extranegrito', sans-serif; /* Fonte principal */
+}
+
+/* Container do formulário e título */
+.login-container {
+    width: 300px;
+    margin: 50px auto;
+    text-align: center; /* Centraliza o conteúdo dentro do container */
+}
+
+/* Estilização do título */
+.login-title {
+    margin-bottom: 20px; /* Espaçamento entre o título e o formulário */
+    font-size: 24px; /* Tamanho da fonte */
+    color: #333; /* Cor do título */
+    font-weight: bold; /* Fonte em negrito */
+}
+
+/* Estilização geral do formulário */
+.login-form {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* Estilo dos labels */
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilo dos inputs de texto e senha */
+.form-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Estilo do botão de submit */
+.form-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito de hover para o botão de submit */
+.form-submit:hover {
+    background-color: #0056b3;
+}
