@@ -1,6 +1,6 @@
 class Livro():
-    def __init__(self,isbn,titulo,autor,assunto,editora,idioma,estoque,preco):
-        self._id = None
+    def __init__(self,isbn,titulo,autor,assunto,idioma,editora,estoque,preco):
+        
         self._isbn = isbn
         self._titulo = titulo 
         self._autor = autor
@@ -10,10 +10,7 @@ class Livro():
         self._estoque = estoque
         self._preco = preco
     
-    def get_id(self):
-        return self._id
-    def set_id(self, new):
-        self._id = new
+    
     
     def get_isbn(self):
         return self._isbn
@@ -55,5 +52,4 @@ class Livro():
     def set_estoque(self,new):
        self._estoque= new
     
-    def values():
-        return "(:isbn,:titulo,:autor,:assunto,:idioma,:editora,:estoque,:preco)"
+    

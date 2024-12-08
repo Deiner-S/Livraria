@@ -1,9 +1,9 @@
 #necessário aplicar design patern que permite uma unica instancia desse objeto
 class Carrinho():    
-    def __init__(self,id_cliente):
+    def __init__(self,id_livro,id_cliente):
         self._id = None
-        self._livros = {}
-        self._finalizado = None
+        self._livros = id_livro
+        self._finalizado = True
         self._id_cliente = id_cliente
 
     def get_finalizado(self):

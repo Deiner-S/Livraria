@@ -1,6 +1,5 @@
 class Atendente():    
-    def __init__(self,nome,email):
-        self._id = None
+    def __init__(self,nome,email):        
         self._nome = nome
         self._email = email
 
@@ -8,11 +7,6 @@ class Atendente():
         return self._login
     def set_login(self, new):
         self._login = new
-
-    def get_id(self):
-        return self._id
-    def set_id(self, new):
-        self._id = new
 
     def get_nome(self):
         return self._nome
