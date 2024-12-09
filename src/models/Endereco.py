@@ -1,14 +1,14 @@
 class Endereco():
-    def __init__(self,rua,numero,bairro,cidade,estado,id_cliente,cep,complemento):
+    def __init__(self,id_cliente,cep,rua,numero,bairro,complemento,cidade,estado):
         self._id = None
+        self._id_cliente = id_cliente
+        self._cep = cep
         self._rua = rua
         self._numero = numero
         self._bairro = bairro
+        self._complemento = complemento
         self._cidade = cidade
         self._estado = estado
-        self._cep = cep
-        self._complemento = complemento
-        self._id_cliente = id_cliente
         
     def get_id(self):
         return self._id
@@ -55,5 +55,4 @@ class Endereco():
     def set_complemento(self, new):
         self._complemento = new
     
-    def values():
-        return "(:fk_cliente_id,:cep,:rua,:numero,:bairro,:complemento,:cidade,:estado)"
+    

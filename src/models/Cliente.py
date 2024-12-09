@@ -27,4 +27,5 @@ class Cliente():
        return self._cliente_tipo
     def set_cliente_tipo(self,new):
        self._cliente_tipo= new
-      
+   
+   

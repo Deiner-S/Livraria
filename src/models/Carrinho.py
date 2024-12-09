@@ -1,15 +1,15 @@
-#necessário aplicar design patern que permite uma unica instancia desse objeto
 class Carrinho():    
-    def __init__(self,id_livro,id_cliente):
-        self._id = None
-        self._livros = id_livro
-        self._finalizado = True
+    def __init__(self,id,id_cliente,id_livro,exemplar):
+        self._id = id
         self._id_cliente = id_cliente
+        self._id_livro = id_livro
+        self._exemplar = exemplar
+        self._status = True
 
-    def get_finalizado(self):
-        return self._finalizado
-    def set_finalizado(self, new):
-        self._finalizado = new    
+    def get_status(self):
+        return self._status
+    def set_status(self, new):
+        self._status = new    
 
     def get_id(self):
         return self._id
@@ -21,14 +21,16 @@ class Carrinho():
     def set_id_cliente(self, new):
         self._id_cliente = new
 
-    def get_livros(self):
-        return self._livros
-    def add_livros(self,livro,id):
-        self._livros.update({id:[livro]})
-    def addMais1(self,id):
-        self._livros.get(id).append(self._livro.get(id)[0])
+    def get_id_livro(self):
+        return self._id_livro
+    def set_id_livro(self, new):
+        self._id_livro = new
 
-    def values():
-        return "(:fk_cliente_id,:fk_livro_id,:exemplares)"
+    def get_exemplar(self):
+        return self._exemplar
+    def set_exemplar(self, new):
+        self._exemplar = new
+
+    
 
         

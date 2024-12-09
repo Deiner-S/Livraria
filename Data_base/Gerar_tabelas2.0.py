@@ -60,11 +60,12 @@ try:
               """
     
     comand6 = """CREATE TABLE Carrinho (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    id INT NOT NULL,
                     fk_cliente_id INT NOT NULL,
                     fk_livro_id INT NOT NULL,
-                    exemplares INT NOT NULL,
-                    status BLOB NOT NULL,                                        
+                    exemplar INT NOT NULL,
+                    status BLOB NOT NULL,
+                    PRIMARY KEY(id, fk_livro_id),                                                         
                     FOREIGN KEY (fk_cliente_id) REFERENCES Cliente (cpf_cnpj),
                     FOREIGN KEY (fk_livro_id) REFERENCES Livro (isbn)
                 );
