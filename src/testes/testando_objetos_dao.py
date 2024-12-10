@@ -1,7 +1,8 @@
 import sys
 import time
 sys.path.append("src")
-import Util as u
+
+import util.Util as u
 
 from models.Login import Login
 from DAO.DAO_Login import DAO_Login
@@ -163,17 +164,32 @@ def teste_nota_fiscal():
     print(retorno4)
     
     dao_nota_fiscal.close()
-"""def teste_login():
-    retorno1 = .create()
+
+def teste_login():
+    dao_login = DAO_Login()
+    login = Login(1, True, '2024-01-01', '2024-12-10 09:00:00', 'atendente01', 'senha123')
+
+    retorno1 = dao_login.create(login)
+    login.set_id(retorno1)
     print(retorno1)
-    retorno2 = .read()
+    retorno2 = dao_login.read(login.get_id())
     print(retorno2)
-    retorno3 = .update()
+    login.set_ativo(False)
+    login.set_ultimo_login("14/11/2024")
+    retorno3 = dao_login.update(login)
     print(retorno3)
-    retorno4 = .delete()
-    print(retorno4)"""
-    
+    retorno4 = dao_login.delete(login.get_id())
+    print(retorno4)
+
+    dao_login.close()
 def main():
-    teste_nota_fiscal()
+    teste_atendente()
+    teste_carrinho()
+    teste_cliente()
+    teste_compra_cliente()
+    teste_endereco()
+    teste_livro()
+    teste_login()
+    teste_nota_fiscal()    
 if __name__ == ("__main__"):
     main()

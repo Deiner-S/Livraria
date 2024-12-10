@@ -5,7 +5,8 @@ class DAO_Login(DAO):
     def create(self, login):
         try:
            cursor = self._conexao.cursor()
-           comando ="""INSERT INTO Login VALUES (:fk_atendente_id,:ativo,:data_criacao,:ultimo_login,:login,:senha)"""
+           comando ="""INSERT INTO Login (fk_atendente_id,ativo,data_criacao,ultimo_login,login,senha) 
+                       VALUES (:fk_atendente_id,:ativo,:data_criacao,:ultimo_login,:login,:senha)"""
            cursor.execute(comando,{"fk_atendente_id" :login.get_id_atendente(),
                                    "ativo" :login.get_ativo(),
                                    "data_criacao" :login.get_data_criacao(),

@@ -91,7 +91,7 @@ try:
                     fk_atendente_id INT NOT NULL,
                     ativo BLOB NOT NULL,
                     data_criacao DATE NOT NULL,
-                    ultimo_acesso DATE NOT NULL,
+                    ultimo_login DATE NOT NULL,
                     login TEXT NOT NULL,
                     senha TEXT NOT NULL,
                     FOREIGN KEY (fk_atendente_id) REFERENCES Atendente (email)
