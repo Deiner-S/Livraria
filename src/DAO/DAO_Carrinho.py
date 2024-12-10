@@ -36,8 +36,8 @@ class DAO_Carrinho(DAO):
     def read_cliente(self, id_cliente):
         try:
             cursor = self._conexao.cursor()
-            comando = """SELECT * FROM Carrinho WHERE fk_cliente_id = :id_cliente"""
-            cursor.execute(comando, {"id_cliente": id_cliente})
+            comando = """SELECT * FROM Carrinho WHERE fk_cliente_id = :id_cliente AND status = :status"""
+            cursor.execute(comando, {"id_cliente": id_cliente,"status":True})
             return cursor.fetchall()
         except Exception as e:
             print(f"Erro ao tentar ler dados: {e}")
