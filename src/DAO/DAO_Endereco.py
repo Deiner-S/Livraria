@@ -1,6 +1,6 @@
 from DAO.ABC import DAO
 
-class DAO_endereco(DAO):
+class DAO_Endereco(DAO):
 
     
     def create(self, endereco):
@@ -19,7 +19,7 @@ class DAO_endereco(DAO):
                 "estado" : endereco.get_estado()
             })
             self._conexao.commit
-            return True
+            return cursor.lastrowid
         except Exception as e:
             print(f"Erro ao tentar inserir dados: {e}")
             return False
@@ -53,7 +53,17 @@ class DAO_endereco(DAO):
                             cidade = :cidade, 
                             estado = :estado
                         WHERE id = :id"""
-           cursor.execute(comando,{})
+           cursor.execute(comando,{
+                            "cep" :endereco.get_cep(), 
+                            "rua" :endereco.get_rua(), 
+                            "numero" :endereco.get_numero(), 
+                            "bairro" :endereco.get_bairro(), 
+                            "complemento" :endereco.get_complemento(), 
+                            "cidade" :endereco.get_cidade(), 
+                            "estado" :endereco.get_estado(),
+                            "id": endereco.get_id()
+                            })
+           
            self._conexao.commit()
            return True
         except Exception as e:
@@ -65,4 +75,12 @@ class DAO_endereco(DAO):
     #
      
     def delete(self, id):
-        pass
+        try:
+           cursor = self._conexao.cursor()
+           comando ="""DELETE FROM Endereco WHERE id = :id"""
+           cursor.execute(comando,{"id": id})
+           self._conexao.commit()
+           return True
+        except Exception as e:
+           print(f'Erro ao tentar deletar dados: {e}')
+           return False

@@ -71,16 +71,17 @@ try:
                 );
               """
     comand7 = """CREATE TABLE Compra_Cliente (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    id TEXT NOT NULL,
                     fk_carrinho_id INT NOT NULL,
-                    fk_nota_Fiscal_numero INT NOT NULL,
+                    fk_nota_Fiscal_id INT NOT NULL,
                     fk_atendente_id INT NOT NULL,
                     operacao TEXT NOT NULL,
                     data DATE NOT NULL,
                     desconto REAL NOT NULL,
-                    total REAL NOT NULL,                    
+                    total REAL NOT NULL,
+                    PRIMARY KEY(id),                    
                     FOREIGN KEY (fk_carrinho_id) REFERENCES Carrinho (id),
-                    FOREIGN KEY (fk_nota_Fiscal_numero) REFERENCES Nota_Fiscal (id),
+                    FOREIGN KEY (fk_nota_Fiscal_id) REFERENCES Nota_Fiscal (id),
                     FOREIGN KEY (fk_atendente_id) REFERENCES Atendente (email)
                 );
               """

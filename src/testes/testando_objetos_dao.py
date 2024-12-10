@@ -1,6 +1,23 @@
 import sys
 import time
 sys.path.append("src")
+import Util as u
+
+from models.Login import Login
+from DAO.DAO_Login import DAO_Login
+
+from models.Nota_fiscal import Nota_fiscal
+from DAO.DAO_Nota_fiscal import DAO_Nota_fiscal
+
+from models.Compra_cliente import Compra_cliente
+from DAO.DAO_Compra_cliente import DAO_Compra_cliente
+
+from models.Endereco import Endereco
+from DAO.DAO_Endereco import DAO_Endereco
+
+from models.Carrinho import Carrinho
+from DAO.DAO_Carrinho import DAO_Carrinho
+
 from models.Atendente import Atendente
 from DAO.DAO_Atendente import DAO_Atendente
 
@@ -68,10 +85,95 @@ def teste_atendente():
     
     
     dao_atendente.close()
+    
+def teste_endereco():
+    dao_endereco = DAO_Endereco()
+    endereco = Endereco(101, "12345-678", "Rua Exemplo", 123, "Bairro Central", "Apto 202", "Cidade Exemplo", "SP")
+    retorno1 = dao_endereco.create(endereco)
+    endereco.set_id(retorno1)
+    print(retorno1)
+    time.sleep(5)
 
-def main():
-    teste_atendente()   
+    retorno2 =dao_endereco.read(endereco.get_id())
+    print(retorno2)
+    endereco1 = Endereco(101, "98765-432", "Avenida das Rosas", 456, "Jardim Primavera", "Bloco 3", "Metropolis", "RJ")
+    endereco1.set_id(retorno1)
+    retorno3 =dao_endereco.update(endereco1)
+    print(retorno3)
+    time.sleep(5)    
+    retorno4 = dao_endereco.delete(endereco.get_id())
+    print(retorno4)
+    
+    dao_endereco.close()
         
+def teste_carrinho():
+    dao_carrinho = DAO_Carrinho()
+    carrinho1 = Carrinho(1, 101, 202, 1)
+    
+    retorno1 = dao_carrinho.create(carrinho1)
+    print(retorno1)
+    time.sleep(5)
+    
+    retorno2 = dao_carrinho.read(carrinho1.get_id())
+    print(retorno2)
+    
+    carrinho2 = Carrinho(1, 101, 202, 2)
+    retorno3 = dao_carrinho.update(carrinho2)
+    print(retorno3)
+    time.sleep(5)
+    retorno4 = dao_carrinho.delete(carrinho2)
+    print(retorno4)
+    
+    dao_carrinho.close()
 
+def teste_compra_cliente():
+    dao_compra_cliente = DAO_Compra_cliente()
+    id_compra = u.id_alfanumerico()
+    compra_cliente = Compra_cliente(id_compra,123, 456, 789, '2024-12-09', 'compra', 10.0, 150.75)
+    
+    retorno1 = dao_compra_cliente.create(compra_cliente)
+    print(retorno1)
+    
+    retorno2 = dao_compra_cliente.read(compra_cliente.get_id())
+    print(retorno2)
+    
+    compra_cliente.set_desconto(20.00)
+    compra_cliente.set_operacao("comodt")
+    
+    retorno3 = dao_compra_cliente.update(compra_cliente)
+    print(retorno3)
+    
+    retorno4 = dao_compra_cliente.delete(compra_cliente.get_id())
+    print(retorno4)
+    dao_compra_cliente.close()
+    
+def teste_nota_fiscal():
+    dao_nota_fiscal = DAO_Nota_fiscal()
+    
+    nota_fiscal = Nota_fiscal('Liberado', 1234)
+    retorno1 = dao_nota_fiscal.create(nota_fiscal)
+    nota_fiscal.set_id(retorno1)
+    print(retorno1)
+    retorno2 = dao_nota_fiscal.read(nota_fiscal.get_id())
+    print(retorno2)
+    nota_fiscal.set_cfop("5102")
+    retorno3 = dao_nota_fiscal.update(nota_fiscal)
+    print(retorno3)
+    retorno4 = dao_nota_fiscal.delete(nota_fiscal.get_id())
+    print(retorno4)
+    
+    dao_nota_fiscal.close()
+"""def teste_login():
+    retorno1 = .create()
+    print(retorno1)
+    retorno2 = .read()
+    print(retorno2)
+    retorno3 = .update()
+    print(retorno3)
+    retorno4 = .delete()
+    print(retorno4)"""
+    
+def main():
+    teste_nota_fiscal()
 if __name__ == ("__main__"):
     main()

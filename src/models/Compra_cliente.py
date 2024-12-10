@@ -1,6 +1,6 @@
 class Compra_cliente():
-    def __init__(self,id_carrinho,id_notaFiscal,id_atendente,data,operacao,desconto,total):
-        self._id = None
+    def __init__(self,id,id_carrinho,id_notaFiscal,id_atendente,data,operacao,desconto,total):
+        self._id = id
         self._id_carrinho = id_carrinho
         self._id_notaFiscal = id_notaFiscal
         self._id_atendente = id_atendente

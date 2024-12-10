@@ -1,12 +1,12 @@
 class Login():
-    def __init__(self,login,senha,id_atendente,ativo,data_criacao,ultimo_login):
+    def __init__(self,id_atendente,ativo,data_criacao,ultimo_login,login,senha):
         self._id = None
         self._id_atendente = id_atendente
         self._ativo = ativo
         self._data_criacao = data_criacao
         self._ultimo_login = ultimo_login
-        self._senha = senha
         self._login = login
+        self._senha = senha
         
 
     def get_id(self):
