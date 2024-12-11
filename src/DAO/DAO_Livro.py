@@ -39,6 +39,16 @@ class DAO_Livro(DAO):
             return cursor.fetchall()
         except Exception as e:
             print(f"Erro ao ler dados: {e}")
+
+    def read_all(self):
+        try:
+           cursor = self._conexao.cursor()
+           comando ="""SELECT * FROM Livro"""
+           cursor.execute(comando,{})
+           return cursor.fetchall()
+        except Exception as e:
+           print(f'Erro ao tentar ler dados: {e}')
+           return False
     #   
     #
     #

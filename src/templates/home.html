@@ -3,15 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
     <title>EDUFU</title>
 </head>
-<body>
-    <nav>
+<body class = "font">
+    <header>
         
+        <header>
+    <nav>       
         <a href="http://127.0.0.1:5000/cadastro">Novo Cliente</a>
         <a href="">Venda</a>
     </nav>
     <main>
+        <h1>Catálogo de Livros</h1>
+        <div class="catalogo">
+            {% for livro in livros %}
+                <div class="livro">
+                    <h2>{{ livro[1] }}</h2>
+                    <p>Autor: {{ livro[2] }}</p>
+                    <p>Ano de publicação: {{ livro[3] }}</p>
+                    <p>ISBN: {{ livro[4] }}</p>
+                    <form action="/comprar" method="POST">
+                        <input type="hidden" name="id" value="{{ livro[0] }}">
+                        <input type="hidden" name="titulo" value="{{ livro[1] }}">
+                        <input type="hidden" name="autor" value="{{ livro[2] }}">
+                        <input type="hidden" name="ano_publicacao" value="{{ livro[3] }}">
+                        <input type="hidden" name="isbn" value="{{ livro[4] }}">
+                        <button type="submit" class="botao-compra">Comprar</button>
+                    </form>
+                </div>
+                
+            {% endfor %}
+        </div>
         
     </main>
     <footer>

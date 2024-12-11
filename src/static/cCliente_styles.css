@@ -1,0 +1,55 @@
+.font {
+    font-family: 'JetBrains Mono Extranegrito', sans-serif; /* Fonte principal */
+}
+
+/* Estilo geral do formulário */
+.form {
+    width: 100%;
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* Estilo dos labels */
+.label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilo dos inputs */
+.input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Estilo do botão de envio */
+.input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Ajuste do espaçamento entre os elementos */
+.form br {
+    display: block;
+    margin-bottom: 10px;
+}

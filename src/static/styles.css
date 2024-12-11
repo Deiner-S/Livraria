@@ -1,3 +1,20 @@
+.catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.livro {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+.livro h2 {
+    margin-top: 0;
+}
+
+
 .font {
     font-family: 'JetBrains Mono Extranegrito', sans-serif; /* Fonte principal */
 }
@@ -8,7 +25,7 @@ input::placeholder {
 }
 
 /* Container do formulário e título */
-.login-container {
+.container {
     width: 300px;
     margin: 50px auto;    
     text-align: center; /* Centraliza o conteúdo dentro do container */
@@ -23,7 +40,7 @@ input::placeholder {
 }
 
 /* Estilização geral do formulário */
-.login-form {
+.form {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -32,7 +49,7 @@ input::placeholder {
 }
 
 /* Estilo dos labels */
-.form-label {
+.label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
@@ -40,7 +57,7 @@ input::placeholder {
 }
 
 /* Estilo dos inputs de texto e senha */
-.form-input {
+.input {
     width: 100%;
     padding: 12px;
     margin-bottom: 10px;
@@ -51,7 +68,7 @@ input::placeholder {
 }
 
 /* Estilo do botão de submit */
-.form-submit {
+.submit {
     width: 100%;
     padding: 8px;
     background-color: #007BFF;
@@ -64,6 +81,6 @@ input::placeholder {
 }
 
 /* Efeito de hover para o botão de submit */
-.form-submit:hover {
+.submit:hover {
     background-color: #0056b3;
 }
