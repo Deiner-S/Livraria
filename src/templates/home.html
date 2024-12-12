@@ -7,15 +7,27 @@
     <title>EDUFU</title>
 </head>
 <body class = "font">
-    <header>
-        
-        <header>
-    <nav>       
-        <a href="http://127.0.0.1:5000/cadastro">Novo Cliente</a>
-        <a href="">Venda</a>
+    <!-- Header -->
+    <header class="header">
+        <h1>Editora da UFU<br>
+            EDUFU<br>
+            Universidade Federal de Uberlândia</h1>
+        <p>Bem-vindo ao nossa Livraria!</p>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <!--<a href="#" class="logo">EDUFU</a>-->
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </div>
     </nav>
-    <main>
-        <h1>Catálogo de Livros</h1>
+    <main class="main">        
         <div class="catalogo">
             {% for livro in livros %}
                 <div class="livro">
@@ -37,8 +49,27 @@
         </div>
         
     </main>
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <p class="contact-info">Telefone: (11) 1234-5678</p>
+            <p class="contact-info">Email: contato@exemplo.com</p>
 
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            </div>
+
+            <div class="links">
+                <a href="/sobre">Sobre Nós</a>
+                <a href="/privacidade">Política de Privacidade</a>
+                <a href="/termos">Termos de Uso</a>
+            </div>
+
+            <p>&copy; 2024 Nome da Empresa. Todos os direitos reservados.</p>
+        </div>
     </footer>
 </body>
 </html>

@@ -1,7 +1,123 @@
+/* Header */
+.header {
+    background: linear-gradient(to top, #00521E, #00B844);
+ 
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.header p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+/* Navbar (agora sem ser fixa) */
+.navbar {
+    background-color: #059E00;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar .menu li {
+    margin: 0 15px;
+}
+
+.navbar .menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar .menu li a:hover {
+    color: #09EB00;
+}
+
+/* Espaçamento para o conteúdo principal abaixo da navbar */
+.content {
+    margin-top: 20px;  /* Agora com a margem ajustada para o espaçamento correto */
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    background-color: #059E00;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.footer .social-links a {
+    color: #09EB00;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.footer .social-links a:hover {
+    color: #ffffff;
+}
+
+.footer .links a {
+    color: #09EB00;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.footer .links a:hover {
+    color: white;
+}
+
+.footer .contact-info {
+    margin-top: 20px;
+}
+
+.main{
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
 .catalogo {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    
+
+    
 }
 .livro {
     border: 1px solid #ccc;
@@ -72,6 +188,19 @@ input::placeholder {
     width: 100%;
     padding: 8px;
     background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.botao-compra {   
+    font-weight: bold; 
+    width: 100%;
+    padding: 8px;
+    background-color: #a87b05;
     color: white;
     border: none;
     border-radius: 4px;
