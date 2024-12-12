@@ -6,13 +6,15 @@
     <link rel="stylesheet" href="../static/styles.css">
     <title>EDUFU</title>
 </head>
-<body class = "font">
+<body class = "font body">
     <!-- Header -->
     <header class="header">
-        <h1>Editora da UFU<br>
-            EDUFU<br>
-            Universidade Federal de Uberlândia</h1>
-        <p>Bem-vindo ao nossa Livraria!</p>
+        <div>
+            
+            <h1>EDUFU</h1><br>
+            <h2>Universidade Federal de Uberlândia</h2>    
+            <p>Bem-vindo ao nossa Livraria!</p>
+        </div>
     </header>
 
     <!-- Navbar -->
@@ -27,23 +29,30 @@
             </ul>
         </div>
     </nav>
-    <main class="main">        
+    <main class = "main">
+        
         <div class="catalogo">
-            {% for livro in livros %}
-                <div class="livro">
-                    <h2>{{ livro[1] }}</h2>
+        {% for livro in livros %}
+            <div class="livro">
+                <div>
+                    <h3>{{ livro[1] }}</h3>
                     <p>Autor: {{ livro[2] }}</p>
                     <p>Ano de publicação: {{ livro[3] }}</p>
                     <p>ISBN: {{ livro[4] }}</p>
-                    <form action="/comprar" method="POST">
-                        <input type="hidden" name="id" value="{{ livro[0] }}">
-                        <input type="hidden" name="titulo" value="{{ livro[1] }}">
-                        <input type="hidden" name="autor" value="{{ livro[2] }}">
-                        <input type="hidden" name="ano_publicacao" value="{{ livro[3] }}">
-                        <input type="hidden" name="isbn" value="{{ livro[4] }}">
-                        <button type="submit" class="botao-compra">Comprar</button>
-                    </form>
                 </div>
+                <form action="/comprar" method="POST">
+                    <input type="hidden" name="id" value="{{ livro[0] }}">
+                    <input type="hidden" name="titulo" value="{{ livro[1] }}">
+                    <input type="hidden" name="autor" value="{{ livro[2] }}">
+                    <input type="hidden" name="ano_publicacao" value="{{ livro[3] }}">
+                    <input type="hidden" name="isbn" value="{{ livro[4] }}">
+                    <div class="div-button">
+                        <button type="submit" class="botao-compra">Comprar</button>
+                    </div>
+                </form>
+            </div>
+              
+        
                 
             {% endfor %}
         </div>
