@@ -37,17 +37,19 @@
                 <div>
                     <h3>{{ livro[1] }}</h3>
                     <p>Autor: {{ livro[2] }}</p>
-                    <p>Ano de publicação: {{ livro[3] }}</p>
-                    <p>ISBN: {{ livro[4] }}</p>
+                    <p>R$ {{ livro[7] }}</p>
                 </div>
                 <form action="/comprar" method="POST">
-                    <input type="hidden" name="id" value="{{ livro[0] }}">
+                    <input type="hidden" name="isbn" value="{{ livro[0] }}">
                     <input type="hidden" name="titulo" value="{{ livro[1] }}">
                     <input type="hidden" name="autor" value="{{ livro[2] }}">
-                    <input type="hidden" name="ano_publicacao" value="{{ livro[3] }}">
-                    <input type="hidden" name="isbn" value="{{ livro[4] }}">
+                    <input type="hidden" name="assunto" value="{{ livro[3] }}">
+                    <input type="hidden" name="idioma" value="{{ livro[4] }}">
+                    <input type="hidden" name="editora" value="{{ livro[5] }}">
+                    <input type="hidden" name="estoque" value="{{ livro[6] }}">
+                    <input type="hidden" name="preco" value="{{ livro[7] }}">
                     <div class="div-button">
-                        <button type="submit" class="botao-compra">Comprar</button>
+                        <button type="submit" class="botao-compra">Adicionar ao carrinho</button>
                     </div>
                 </form>
             </div>

@@ -19,7 +19,7 @@ tabela_livro = []
 for c1,c2,c3,c4,c5,c6 in zip(lista_isbn,lista_titulo,lista_autor,lista_assunto,lista_editora,lista_capa):
     
     
-    tabela_livro.append((c1.strip(),c2.strip(),c3.strip(),c4.strip(),c5.strip(),"PORTUGUES",c6.strip()))
+    tabela_livro.append((c1.strip(),c2.strip(),c3.strip(),c4.strip(),"PORTUGUES",c5.strip(),c6.strip()))
     
 banco = DAO_Livro()
 
