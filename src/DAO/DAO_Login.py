@@ -23,11 +23,11 @@ class DAO_Login(DAO):
     #
     # 
      
-    def read(self, id):
+    def read(self, email):
         try:
            cursor = self._conexao.cursor()
-           comando ="""SELECT * FROM Login WHERE id = :id"""
-           cursor.execute(comando,{"id":id})
+           comando ="""SELECT * FROM Login WHERE email = :email"""
+           cursor.execute(comando,{"id":email})
            self._conexao.commit()
            return cursor.fetchall()
         except Exception as e:

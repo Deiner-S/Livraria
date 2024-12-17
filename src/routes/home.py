@@ -1,4 +1,5 @@
 from DAO.DAO_Livro import DAO_Livro
+import services.adicionar_carrinho as cart
 from flask import render_template, request
 from . import home_blueprint
 
@@ -11,13 +12,8 @@ def catalogo():
 
     if request.method == "POST":        
         isbn=request.form.get("isbn")
-        titulo=request.form.get("titulo")
-        autor=request.form.get("autor")
-        assunto=request.form.get("assunto")
-        idioma=request.form.get("idioma")
-        editora=request.form.get("editora")
-        estoque=request.form.get("estoque")
-        preco=request.form.get("preco")
+
+        cart.adicionar(isbn,id_cliente,1)
 
         
 

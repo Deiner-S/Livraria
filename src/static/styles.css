@@ -63,6 +63,16 @@
     font-weight: bold;
     text-decoration: none;
 }
+.carrinho{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    
+}
+
+.carrinho:hover{
+    color: #09EB00;    
+}
 
 .navbar .menu {
     list-style: none;
@@ -93,7 +103,7 @@
 
 /* Footer */
 .footer {
-    background-color: #059E00;
+    background-color: #01420A;
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -174,6 +184,7 @@ input::placeholder {
     width: 300px;
     margin: 50px auto;    
     text-align: center; /* Centraliza o conteúdo dentro do container */
+    
 }
 
 /* Estilização do título */

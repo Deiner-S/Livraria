@@ -10,7 +10,7 @@ from models.Carrinho import Carrinho
 from DAO.DAO_Carrinho import DAO_Carrinho
 
 
-def adicionar_carrinho(id_livro,id_cliente,exemplar):
+def adicionar(id_livro,id_cliente,exemplar):
     #procurar cliente no banco
     #se encontrar instancie objeto cliente
     #se não cadastre cliente

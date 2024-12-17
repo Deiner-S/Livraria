@@ -6,9 +6,8 @@ from . import cadastro_blueprint
 def cadastro_cliente():
     if request.method == "POST":
         nome = request.form.get("nome")
-        cpf = request.form.get("cpf")
-        cnpj = request.form.get("cnpj")
-        ie = request.form.get("ie")
+        email =request.form.get("email")       
+        senha = request.form.get("senha")
         print(f"nome: {nome},\n cpf: {cpf}, \n cnpj: {cnpj}, \n ie: {ie}")
     
     return render_template("cadastro_cliente.html")
