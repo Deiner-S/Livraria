@@ -6,6 +6,7 @@ home_blueprint = Blueprint('home', __name__)
 login_blueprint = Blueprint('login', __name__)
 cadastro_blueprint = Blueprint('cadastro', __name__)
 logout_blueprint = Blueprint('logout', __name__)
+dashboard_blueprint = Blueprint('blueprint', __name__)
 cadastro_atendente_blueprint = ('cadatro_atendente', __name__)
 
 # Funções para registrar as rotas nos Blueprints
