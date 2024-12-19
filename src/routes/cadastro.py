@@ -1,8 +1,8 @@
 from flask import render_template, request
-from . import cadastro_blueprint
+from . import cadastro_bp
 
 
-@cadastro_blueprint.route('/cadastro', methods=['GET','POST'])
+@cadastro_bp.route('/cadastro', methods=['GET','POST'])
 def cadastro_cliente():
     if request.method == "POST":
         nome = request.form.get("nome")

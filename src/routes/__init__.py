@@ -2,13 +2,13 @@
 from flask import Blueprint
 
 # Inicializando Blueprints
-home_blueprint = Blueprint('home', __name__)
-login_blueprint = Blueprint('login', __name__)
-cadastro_blueprint = Blueprint('cadastro', __name__)
-logout_blueprint = Blueprint('logout', __name__)
-dashboard_blueprint = Blueprint('blueprint', __name__)
-cadastro_atendente_blueprint = Blueprint('cadatro_atendente', __name__)
-
+home_bp = Blueprint('home', __name__)
+login_bp = Blueprint('login', __name__)
+cadastro_bp = Blueprint('cadastro', __name__)
+logout_bp = Blueprint('logout', __name__)
+dashboard_bp = Blueprint('blueprint', __name__)
+cadastro_atendente_bp = Blueprint('cadatro_atendente', __name__)
+auth_bp = Blueprint('auth', __name__)
 # Funções para registrar as rotas nos Blueprints
 from .home import *
 from .login import *

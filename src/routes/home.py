@@ -1,9 +1,9 @@
 from DAO.DAO_Livro import DAO_Livro
 import services.adicionar_carrinho as cart
 from flask import render_template, request
-from . import home_blueprint
+from . import home_bp
 
-@home_blueprint.route('/', methods=['GET','POST'])
+@home_bp.route('/', methods=['GET','POST'])
 def catalogo():
     # Conectar ao banco de dados e obter os livros
     dao_livro = DAO_Livro()    

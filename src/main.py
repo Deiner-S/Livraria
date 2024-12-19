@@ -10,11 +10,12 @@ login_manager.init_app(app)
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))   
+    return User.get_user(user_id)   
 
-app.register_blueprint(home_blueprint)
-app.register_blueprint(login_blueprint)
-app.register_blueprint(cadastro_blueprint)
+app.register_blueprint(home_bp)
+app.register_blueprint(login_bp)
+app.register_blueprint(cadastro_bp)
+app.register_blueprint(auth_bp)
 #app.register_blueprint(logout_blueprint)
 #app.register_blueprint(cadastro_atendente_blueprint)
 
