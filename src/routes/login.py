@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for, session
-from flask_login import login_user, current_user
+from flask_login import login_manager, login_user, current_user
 from models.User import User
 from DAO.DAO_Login import DAO_Login
 
